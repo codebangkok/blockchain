@@ -1,0 +1,12 @@
+{
+  "config": {
+      "chainID": 10,
+      "ethash": { 
+          "fixeddifficulty": 1000
+      },
+      "constantinoplefixblock": 0,
+      "contractSizeLimit": 2147483647
+  },
+  "gasLimit": "0x1fffffffffffff",
+  "difficulty": "0x1"
+}
