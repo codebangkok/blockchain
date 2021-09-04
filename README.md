@@ -63,16 +63,20 @@
 * **GitHub:** [https://github.com/CodeBangkok](https://github.com/CodeBangkok)
 
 
-Agenda
+### Hash Script - Google Sheet
+```
+function hash(input) {
+  var rawHash = Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_1,input);
+  var txtHash = '';
+  for (j = 0; j < rawHash.length; j ++){
+    var hashVal = rawHash[j];
+    if (hashVal<0)
+      hashVal += 256;
+    if (hashVal.toString(16).length == 1)
+      txtHash +="0";
+    txtHash += hashVal.toString(16);
+    }
+ return txtHash;
+}
 
-Evolution of Money
-Cryptography
-Bitcoins
-Ethereum
-MetaMask Wallet
-Hardware Wallet
-Developer Tools
-Remix
-Solidity
-Flutter
-Hyperledger Besu
+```
