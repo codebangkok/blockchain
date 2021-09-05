@@ -1,0 +1,11 @@
+besu \
+--genesis-file=genesis.json \
+--bootnodes=enode://8310f490a7dde219f5582f6c327c17cef4428599310f8d05598611c9a1b31defe492866ebce0c9ab59b73009d39457f4c26580bd38ec562b8e2eda8bee559fb1@13.76.163.73:30303 \
+--data-path=data \
+--rpc-http-enabled \
+--rpc-http-host=0.0.0.0 \
+--rpc-http-port=8545 \
+--rpc-http-cors-origins=* \
+--host-allowlist=* \
+--p2p-enabled=true \
+--p2p-port=30303 \

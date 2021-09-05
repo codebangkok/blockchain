@@ -1,0 +1,39 @@
+version: '3.9'
+services: 
+  besu:
+    container_name: besu
+    image: hyperledger/besu
+    environment: 
+      - BESU_GENESIS_FILE=/genesis.json
+      - BESU_DATA_PATH=/data
+      - BESU_RPC_HTTP_ENABLED=true
+      - BESU_RPC_HTTP_HOST=0.0.0.0
+      - BESU_RPC_HTTP_PORT=8545
+      - BESU_RPC_HTTP_API=ETH,NET,WEB3,ADMIN
+      - BESU_RPC_HTTP_CORS_ORIGINS=*
+      - BESU_HOST_ALLOWLIST=*
+      - BESU_MIN_GAS_PRICE=0
+      - BESU_MINER_ENABLED=true
+      - BESU_MINER_COINBASE=0x008f9b59Eb93b9762f304992B94F65fCe0571776  
+      - BESU_MAX_PEERS=25  
+      - BESU_P2P_PORT=30303
+      - BESU_METRICS_ENABLED=false
+      - BESU_METRICS_PORT=9545
+      - BESU_METRICS_PROTOCOL=PROMETHEUS
+    ports: 
+      - 8545:8545
+      - 30303:30303/tcp
+      - 30303:30303/udp
+      - 9545:9545
+    volumes: 
+      - ./genesis.json:/genesis.json
+      - ./data:/data
+
+  explorer:
+    container_name: explorer
+    image: alethio/ethereum-lite-explorer
+    environment: 
+      - APP_NODE_URL=http://localhost:8545
+    ports: 
+      - 80:80
+    
